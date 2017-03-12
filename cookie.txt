@@ -1,0 +1,29 @@
+HTTP请求，Cookie的使用过程
+1、server通过HTTP Response中的"Set-Cookie: header"把cookie发送给client
+ 
+2、client把cookie通过HTTP Request 中的“Cookie: header”发送给server
+ 
+3、每次HTTP请求，Cookie都会被发送。
+ 
+http请求发送cookies的条件：
+ 
+1、本地已经缓存有cookies
+ 
+2、根据请求的URL来匹配cookies的domain、path属性，如果都符合才会发送。
+ 
+举个例子：访问www.baidu.com时，就不发送www.qq.com的cookies.
+ 
+Cookies查看与存放路径
+ 
+cookies查看：
+ 
+大家可以使用抓包工具，这种工具就不多话，网上搜索出很多。使用这些工具中可以清晰的看到Http Request 中的Cookie， 和Http Response中的cookie
+ 
+cookies存放路径：
+ 
+Cookie相关的Http头
+ 
+    有 两个Http头部和Cookie有关：Set-Cookie和Cookie。
+    Set-Cookie由服务器发送，它包含在响应请求的头部中。它用于在客户端创建一个Cookie
+    Cookie头由客户端发送，包含在HTTP请求的头部中。注意，只有cookie的domain和path与请求的URL匹配才会发送这个cookie。
+ 

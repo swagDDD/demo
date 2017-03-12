@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript"src="jquery.js">  </script>
+<meta charset="utf-8">
+<style type="text/css">
+*{
+  padding: 0px;
+  margin: 0px;
+}
+#tanhuang{
+  position: absolute;
+  top: 50px;
+  left: 0px;
+}
+#line{
+      width: 1px;
+      height: 500px;
+      background: black;
+      position: absolute;
+      top:20px;
+      left: 500px;
+}
+</style>
+<script type="text/javascript">
+window.onload =function(){
+  document.getElementById('btn').onclick=function(){
+    var tanhuang =document.getElementById('tanhuang');
+    var speed =0;
+    var timer =setInterval(function(){
+      var old_left =tanhuang.offsetLeft;
+      if(old_left<500){
+        speed+=(500-old_left)/30;
+      }else{
+        speed-=(old_left-500)/30;
+      }
+  speed*=0.98;
+      var new_left =old_left+speed;
+      tanhuang.style.left=new_left+"px";
+    },50)
+  }
+}
+
+
+
+</script>
+
+</head>
+<body>
+<input type="button" name="" value="运动测试" id="btn">
+<img src="弹簧振子.jpg" alt="" id="tanhuang">
+<div id="line"></div>
+</body>
+</html>

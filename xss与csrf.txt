@@ -1,0 +1,12 @@
+
+XSS和CSRF的区别
+XSS:服务器对客户端的输入检测不严格 ，导致客户端输入的恶意JAVASCRIPT代码被植入到HTML代码中，这些JAVASCRIPT代码得以执行，实现一些特殊的目的.
+CSRF:（Cross-site request forgery跨站请求伪造，也被称成为“one click attack”或者session riding，通常缩写为CSRF或者XSRF，是一种对网站的恶意利用。
+区别：XSS利用站点内的信任用户，而CSRF则通过伪装来自受信任用户的请求来利用受信任的网站。
+跨站脚本
+ 
+跨站脚本（Cross-site scripting，XSS），这个术语用来表示一类安全问题，也就是攻击者向目标Web站点注入HTML标签或脚本。
+ 
+ 
+ 
+通常，防止XSS攻击的方式是，在使用任何不可信的数据来动态的创建文档内容之前，从中移除HTML标签。

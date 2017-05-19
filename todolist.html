@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript"src="jquery.js">  </script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="kk">
+ <form class="" action="" id="pp">
+   <span>请输入：</span>    <input type="text" name="" id="input_value">
+ </form>
+
+
+    </div>
+    <p id="mm"></p>
+    <div class="">
+      <ol id="oo">
+
+      </ol>
+    </div>
+    <script type="text/javascript">
+      (function(){
+        var input_value =$("#input_value");
+        var mm=$("#mm");
+        var oo=$("#oo");
+        var pp=$("#pp");
+
+   function count(){
+     var len = oo.children().length;
+     mm.html(len>0 ? '现在'+len+'项':"");
+   }
+        pp.submit(function(e){
+            e.preventDefault();
+   var value=$("#input_value").val();
+        alert($("#input_value").val());
+        oo.append(function(){
+          return  $("#input_value").val();
+        });
+   oo.append("<li>1</li>");
+  
+        count();
+        });
+    })();
+    </script>
+  </body>
+</html>

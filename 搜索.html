@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script type="text/javascript"src="jquery.js">  </script>
+    <meta charset="utf-8">
+    <title></title>
+      <style type="text/css">
+      #myInput {
+    /*background-image: url('http://www.freeiconspng.com/uploads/search-icon-png-2.png'); /* 背景为放大镜图标 */
+    background-size: 18px; /*大小和内容框大小一样*/
+    background-position: 10px 12px; /* 背景图片定位 */
+    background-repeat: no-repeat; /* 图片不重复 */*/
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
+
+#myUL {
+    /*清除默认样式*/
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#myUL li a {
+    border: 1px solid #ddd;
+    margin-top: -1px; /*消除双重border*/
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block; /*变为块级元素，以来填充li*/
+}
+
+#myUL li a.header {
+    background-color: #e2e2e2;
+    cursor: default; /*使光标看上去，a.header为不可点击项*/
+}
+
+#myUL li a:hover:not(.header) {
+    background-color: #eee;
+}
+          </style>
+          <script type="text/javascript">
+
+  /*搜索函数*/
+
+  function mySearch() {
+      var inputBox = document.getElementById('myInput'),
+          input = inputBox.value.toUpperCase(), /*搜索输入变为大写*/
+          ul = document.getElementById("myUL"),
+          li = ul.getElementsByTagName('li');
+
+      for (i = 0; i < li.length; i++) {
+          a = li[i].getElementsByTagName("a")[0]; /*获得<li>里的<a>*/
+          if (a.innerHTML.toUpperCase().indexOf(input) > -1) { /*搜索是否<a>里有"searchContent"*/
+              li[i].style.display = "block";
+          } else {
+              li[i].style.display = "none";
+          }
+      }
+  }
+
+
+
+  /*每当键盘按键按下后抬起，都调用一次函数*/
+
+
+          </script>
+  </head>
+  <body>
+    <input type="text" id="myInput" placeholder="请输入搜索内容" onkeyup="mySearch()">
+
+   <ul id="myUL">
+       <li><a href="#" class="header">A</a></li>
+       <li><a href="#">Adele</a></li>
+       <li><a href="#">Agnes</a></li>
+
+       <li><a href="#" class="header">B</a></li>
+       <li><a href="#">Billy</a></li>
+       <li><a href="#">Bob</a></li>
+
+       <li><a href="#" class="header">C</a></li>
+       <li><a href="#">Calvin</a></li>
+       <li><a href="#">Christina</a></li>
+       <li><a href="#">Cindy</a></li>
+   </ul>
+  </body>
+</html>
